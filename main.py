@@ -29,7 +29,7 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('question_output.html')
         self.response.write(template.render(
         {
-            'text': text
+            'question': question
         }))
 
 class ListHandler(webapp2.RequestHandler):
@@ -37,7 +37,7 @@ class ListHandler(webapp2.RequestHandler):
         template = jinja_enviroment.get_template('question_output.html')
         self.response.write(template.render(
         {
-                'text': text
+                'question': question
         }))
         
         
