@@ -5,6 +5,13 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
+#!/usr/bin/env python
+#
+# Copyright 2007 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -28,15 +35,15 @@ class Question (ndb.Model):
     
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('question_input.html')
+        template = jinja_environment.get_template('test_input.html')
         self.response.write(template.render())
     def post(self):
         question_from_form = self.request.get('question')
         
         new_question = Question(questionText = question_from_form)
         question_key = new_question.put()
-        
-        template = jinja_environment.get_template('question_output.html')
+
+        template = jinja_environment.get_template('test_confirm.html')
         self.response.write(template.render(
         {
             'questionText': question_from_form
@@ -44,17 +51,18 @@ class MainHandler(webapp2.RequestHandler):
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
-        questions_query = Question.query()
+        questions_query = Question.query().order(Question.questionText)
         list_of_questions = questions_query.fetch()
         
-        template = jinja_enviroment.get_template('question_output.html')
+        template = jinja_environment.get_template('test_output.html')
         self.response.write(template.render(
         {
                 'list': list_of_questions,
         }))
         
-        
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/list', ListHandler),
+ 
 ], debug=True)
