@@ -37,7 +37,7 @@ class ListHandler(webapp2.RequestHandler):
         template = jinja_enviroment.get_template('question_output.html')
         self.response.write(template.render(
         {
-                'question': question
+                'list': question
         }))
         
         
