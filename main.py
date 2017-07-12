@@ -21,6 +21,13 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
 
+class ListHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_enviroment.get_template('question_input.html')
+        self.response.write(template.render())
+        
+        
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/list', ListHandler),
 ], debug=True)
