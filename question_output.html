@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Question Forum</title>
@@ -8,9 +7,13 @@
 
 	{% for l in list %}
 
-	  {{l['question']}}
+	  {{l['questionText']}} <br><br>
 
 	{% endfor %}
+
+	<br><br>
+	<a href = '/'> Enter Another Question </a>
+
 
 </body>
 </html>
