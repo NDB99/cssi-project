@@ -27,12 +27,18 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         template = jinja_environment.get_template('question_output.html')
-        self.response.write(template.render())
+        self.response.write(template.render(
+        {
+            'text': text
+        }))
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_enviroment.get_template('question_output.html')
-        self.response.write(template.render())
+        self.response.write(template.render(
+        {
+                'text': text
+        }))
         
         
 app = webapp2.WSGIApplication([
