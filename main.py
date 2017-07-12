@@ -46,7 +46,8 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('test_confirm.html')
         self.response.write(template.render(
         {
-            'questionText': question_from_form
+            'questionText': question_from_form,
+            'question_id': question_key.id()
         }))
 
 class ListHandler(webapp2.RequestHandler):
@@ -59,10 +60,18 @@ class ListHandler(webapp2.RequestHandler):
         {
                 'list': list_of_questions,
         }))
+class DeleteHandler(webapp2.RequestHandler):
+    def post(self):
+        question_id = self.request.get('id')
+        question_id = int(question_id)
+        question_to_delete = Post.get_by_id(question_id)
+        question_to_delete.key.delete()
+        self.redirect('/list')
         
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/list', ListHandler),
+    ('/delete', DeleteHandler),
  
 ], debug=True)
