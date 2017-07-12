@@ -16,15 +16,20 @@
 #
 import webapp2
 import jinja2
+import os
+
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        template = jinja_enviroment.get_template('question_input'.html)
+        self.response.write(template.render()
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_enviroment.get_template('question_input.html')
-        self.response.write(template.render())
+        template = jinja_enviroment.get_template('question_output.html')
+        self.response.write(template.render()
         
         
 app = webapp2.WSGIApplication([
