@@ -34,6 +34,8 @@ class MainHandler(webapp2.RequestHandler):
         question_from_form = self.request.get('question')
         
         new_question = Question(questionText = question_from_form)
+        question_key = new_question.put()
+        
         template = jinja_environment.get_template('question_output.html')
         self.response.write(template.render(
         {
