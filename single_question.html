@@ -1,9 +1,12 @@
 <html>
 	<body>
-		{{question['text']}}
-	<form action="/delete" method="POST">
-		<input type="hidden" value="{{question.key.id()}}">
+		{{ question }} <br><br>
+		{{ id }} <br><br>
+		
+
+	<form  method="DELETE" action="/list">
 		<input type="submit" value="Delete Question">
 	</form>
+
 	</body>
 </html>
