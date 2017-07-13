@@ -6,8 +6,9 @@
 	<h1>Question Forum</h1>
 
 	{% for l in list %}
+		<a href = "/single?id={{l.key.id()}}"> {{l['questionText']}}</a>
 
-	  {{l['questionText']}} <br><br>
+	   <br><br>
 
 	{% endfor %}
 
