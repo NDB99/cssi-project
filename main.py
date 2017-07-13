@@ -35,7 +35,7 @@ class Question (ndb.Model):
     
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('test_input.html')
+        template = jinja_environment.get_template('question_input.html')
         self.response.write(template.render())
     def post(self):
         question_from_form = self.request.get('question')
@@ -43,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
         new_question = Question(questionText = question_from_form)
         question_key = new_question.put()
 
-        template = jinja_environment.get_template('test_confirm.html')
+        template = jinja_environment.get_template('question_confirm.html')
         self.response.write(template.render(
         {
             'questionText': question_from_form,
@@ -55,7 +55,7 @@ class ListHandler(webapp2.RequestHandler):
         questions_query = Question.query().order(Question.questionText)
         list_of_questions = questions_query.fetch()
         
-        template = jinja_environment.get_template('test_output.html')
+        template = jinja_environment.get_template('question_output.html')
         self.response.write(template.render(
         {
                 'list': list_of_questions,
