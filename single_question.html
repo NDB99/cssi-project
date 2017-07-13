@@ -1,7 +1,7 @@
 <html>
 	<body>
 		{{question['text']}}
-	<form action="/delete" method="POST"
+	<form action="/delete" method="POST">
 		<input type="hidden" value="{{question.key.id()}}">
 		<input type="submit" value="Delete Question">
 	</form>
