@@ -1,12 +1,14 @@
 <html>
 	<body>
-		{{ question }} <br><br>
-		{{ id }} <br><br>
+		{{ question.questionText}} <br><br>
+
 		
 
-	<form  method="DELETE" action="/list">
+	<form  method="POST" action="/delete">
+		<input type="hidden" name = "id" value="{{id}}">
 		<input type="submit" value="Delete Question">
 	</form>
+	
 
 	</body>
 </html>
