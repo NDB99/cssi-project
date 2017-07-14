@@ -1,0 +1,39 @@
+html
+{
+	background-image: url('calm.jpg');
+}
+@font-face
+{
+	font-family: Courgette;
+	src: url(Courgette.ttf);
+}
+h1
+{
+	font-size: 50px;
+	text-align: center;
+	font-family: Courgette;
+}
+form
+{
+	display: block;
+	text-align: center;
+
+}
+#contents
+{
+	padding-top: 250px;
+}
+input[type=text]
+{
+	width: 250px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+#circle
+{
+	background-color: white;
+	border: solid white 5px;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px; 
+}
