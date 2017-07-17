@@ -1,0 +1,62 @@
+html
+{
+	background-image: url('calm.jpg');
+}
+@font-face
+{
+	font-family: Courgette;
+	src: url(Courgette.ttf);
+
+	font-family: Chawp;
+	src: url(chawp.regular.ttf);
+}
+h1
+{
+	color: black;
+	font-size: 70px;
+	text-align: center;
+	font-family: Chawp;
+}
+form
+{
+	display: block;
+	text-align: center;
+
+}
+#contents
+{
+	padding-top: 250px;
+}
+input[type=text]
+{
+	width: 250px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#mark1
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	top: 10px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#mark2
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	bottom: 10px;
+	right:25px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#dino
+{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+	width:50px;
+}
