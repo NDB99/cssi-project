@@ -32,6 +32,7 @@ jinja_environment = jinja2.Environment(
 
 class Question (ndb.Model):
     questionText = ndb.StringProperty()
+    
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('home_page.html')
