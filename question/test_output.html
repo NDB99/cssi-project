@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Question Forum</title>
+
+	<link rel = 'stylesheet' 
+		href = '/resources/outputPage.css'>
+</head>
+<body>
+	<h1>Question Forum</h1>
+	<a id ='link' href = '/'> Enter Another Question </a>
+
+	<div id = ''>
+		{% for l in list %}
+			<a href = "/single?id={{l.key.id()}}"> {{l['questionText']}}</a>
+
+		   <br><br>
+
+		{% endfor %}
+	</div>
+	
+	<img id = 'dino' src = '/resources/dino.png'>
+
+
+</body>
+</html>

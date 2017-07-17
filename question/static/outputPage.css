@@ -1,0 +1,28 @@
+html
+{
+	background-image: url('calm.jpg');
+}
+@font-face
+{
+	font-family: Courgette;
+	src: url(Courgette.ttf);
+}
+#link
+{
+	color: black;
+	position: absolute;
+	bottom: 10px;
+}
+h1
+{
+	text-align: center;
+	color: white;
+	font-family: Courgette;
+}
+#dino
+{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+	width:50px;
+}
