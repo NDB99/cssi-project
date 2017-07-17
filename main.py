@@ -32,8 +32,12 @@ jinja_environment = jinja2.Environment(
 
 class Question (ndb.Model):
     questionText = ndb.StringProperty()
-    
 class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('home_page.html')
+        self.response.write(template.render())
+        
+class AskHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('question_input.html')
         self.response.write(template.render())
@@ -86,6 +90,7 @@ class DeleteHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/ask', AskHandler),
     ('/list', ListHandler),
     ('/delete', DeleteHandler),
     ('/single', SingleHandler),
