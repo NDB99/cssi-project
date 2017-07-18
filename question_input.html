@@ -1,17 +1,31 @@
-<html>
+html>
 	<head>
 		<link rel = 'stylesheet' href = '/resources/mainPage.css'>
-		<title>Any Question??</title>
-	</head>
-	<body>
-		<h1> Any Questions?? </h1>
 
-		<p id = 'textbox'>
-			<form method = 'POST' action = '/'>
-			<input type = 'text' name = 'question'> <br><br>
-			<input type = 'Submit' name = 'Submit'> <br><br>
-			</form>
-		</p>
-		<a href = '/list'> See All Questions </a> <br><br>
+		<script 
+		  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    	</script>
+    	<script src = '/resources/main.js'></script>
+
+	</head>
+<body>
+		<div id = 'contents'>
+			<h1> ANY QUESTIONS?? </h1>	
+
+
+			<p id = 'textbox'>
+				<form method = 'POST' action = '/ask'>
+					<input type = 'text' name = 'question' > <br><br>
+					
+					<input type = 'Submit' name = 'Submit'> <br><br>
+				</form>
+			</p>
+		</div>
+
+		<img id = 'mark1' src = '/resources/mark.png'>
+		<img id = 'mark2' src = '/resources/mark.png'>
+		<img id = 'dino' src = '/resources/dino.png'>
+
+
 	</body>
 </html>
