@@ -1,15 +1,29 @@
 <html>
 	<head>
-		<link rel = 'stylesheet' href = '/resources/mainPage.css'>
+		<link rel = 'stylesheet' 
+		href = '/resources/singlePage.css'>
 	</head>
 	<body>
-		{{ question.questionText}} <br><br>
+		<div id = 'question'>
+			{{ question.questionText}} <br><br>
+		</div>
 
-	<form  method="POST" action="/delete">
-		<input type="hidden" name = "id" value="{{id}}">
-		<input type="submit" value="Delete Question">
-	</form>
-	
+			{{answerText}}
+
+			
+
+		<form id = 'delete' method="POST" action="/delete">
+			<input type="hidden" name = "id" value="{{id}}">
+			<input type="submit" value="Delete Question">
+		</form>
+
+		<form id = 'answer' method = 'POST' action = '/list'>
+			<input type = 'text' name = 'answer' > 
+			<input type = 'Submit' name = 'Submit'> 
+		</form>
+		
+		
+		<img id = 'dino' src = '/resources/dino.png'>
 
 	</body>
 </html>
