@@ -2,6 +2,14 @@ html
 {
 	background-image: url(calm.jpg);
 }
+@font-face
+{
+	font-family: Courgette;
+	src: url(Courgette.ttf);
+
+	font-family: Chawp;
+	src: url(chawp.regular.ttf);
+}
 #dino
 {
 	position: absolute;
@@ -11,10 +19,12 @@ html
 }
 #question
 {
+	padding-top: 250px;
 	text-align: center;
 	font-size: 50px;
+	font-family: Chawp;
 }
-#answer
+#answers
 {
 	display: block;
 	text-align: center;
@@ -29,4 +39,28 @@ input[type=text]
 {
 	position: absolute;
 	bottom: 5px;
+}
+h1
+{
+	padding-top: 250px;
+	text-align: center;
+}
+#mark1
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	top: 10px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#mark2
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	bottom: 10px;
+	right:25px;
+	transform: rotate(20deg);
+	z-index: -1;
 }
