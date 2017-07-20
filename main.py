@@ -32,38 +32,27 @@ jinja_environment = jinja2.Environment(
 
 class Question (ndb.Model):
     questionText = ndb.StringProperty()
+class Answer (ndb.Model):
+    answerText = ndb.StringProperty()
+    question = ndb.IntegerProperty()
+
     
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('home_page.html')
+        template = jinja_environment.get_template('test_input.html')
         self.response.write(template.render())
-        
-class AskHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('question_input.html')
-        self.response.write(template.render())
+
     def post(self):
         question_from_form = self.request.get('question')
         
         new_question = Question(questionText = question_from_form)
         question_key = new_question.put()
 
-        template = jinja_environment.get_template('question_confirm.html')
+        template = jinja_environment.get_template('test_confirm.html')
         self.response.write(template.render(
         {
             'questionText': question_from_form,
             'question_id': question_key.id()
-        }))
-
-class ListHandler(webapp2.RequestHandler):
-    def get(self):
-        questions_query = Question.query().order(Question.questionText)
-        list_of_questions = questions_query.fetch()
-        
-        template = jinja_environment.get_template('question_output.html')
-        self.response.write(template.render(
-        {
-                'list': list_of_questions,
         }))
 
 class SingleHandler(webapp2.RequestHandler):
@@ -71,14 +60,59 @@ class SingleHandler(webapp2.RequestHandler):
         question_id = self.request.get('id')
         question_id = int(question_id)
         single_question = Question.get_by_id(question_id)
-        template = jinja_environment.get_template('single_question.html')
+
+        template = jinja_environment.get_template('single_test.html')
         self.response.write(template.render(
             {
                 'question': single_question,
-                'id' : question_id,
-                
+                'id' : question_id, 
 
             }))
+
+    def post(self):
+        answer_from_form = self.request.get('answer')
+        new_answer = Question(answerText = answer_from_form)
+        answer_key = new_answer.put()
+
+        template = jinja_environment.get_template('answer.html')
+        self.response.write(template.render(
+            {
+                'answerText': answer_from_form, 
+                'answer_id': answer_key.id(),
+
+            }))
+
+class ListHandler(webapp2.RequestHandler):
+    def get(self):
+        questions_query = Question.query().order(Question.questionText)
+        list_of_questions = questions_query.fetch()
+        
+        template = jinja_environment.get_template('test_output.html')
+        self.response.write(template.render(
+        {
+                'list': list_of_questions,
+        }))
+
+
+class AnswerHandler(webapp2.RequestHandler):
+    def post(self):
+
+        answer = self.request.get('answer')
+        Id = int (self.request.get('id'))
+
+        new_answer = Answer(answerText = answer, question = Id)
+        answer_key = new_answer.put()
+
+        answer_query = Answer.query(Answer.question == Id)
+        list_of_answers = answer_query.fetch()
+        
+        template = jinja_environment.get_template('answer.html')
+        self.response.write(template.render(
+        {
+                'Alist': list_of_answers,
+        }))
+
+
 
 class DeleteHandler(webapp2.RequestHandler):
     def post(self):
@@ -87,13 +121,14 @@ class DeleteHandler(webapp2.RequestHandler):
         question_to_delete = Question.get_by_id(question_id)
         question_to_delete.key.delete()
         self.redirect('/list')
+
         
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/ask', AskHandler),
     ('/list', ListHandler),
     ('/delete', DeleteHandler),
     ('/single', SingleHandler),
+    ('/answer', AnswerHandler),
  
 ], debug=True)
