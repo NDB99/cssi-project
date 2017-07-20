@@ -6,12 +6,16 @@ html
 {
 	font-family: Courgette;
 	src: url(Courgette.ttf);
+
+	font-family: Chawp;
+	src: url(chawp.regular.ttf);
 }
 h1
 {
-	font-size: 50px;
+	color: ff3067;
+	font-size: 70px;
 	text-align: center;
-	font-family: Courgette;
+	font-family: Chawp;
 }
 form
 {
@@ -29,11 +33,30 @@ input[type=text]
     padding: 8px;
     box-sizing: border-box;
 }
-#circle
+
+#mark1
 {
-	background-color: white;
-	border: solid white 5px;
-	border-radius: 50%;
-	width: 100px;
-	height: 100px; 
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	top: 10px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#mark2
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	bottom: 10px;
+	right:25px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#dino
+{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+	width:50px;
 }
