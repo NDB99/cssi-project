@@ -1,0 +1,32 @@
+<html id = 'html'>
+<head>
+	<title>Any Questions?? - Question Forum</title>
+
+	<link rel = 'stylesheet' 
+		href = '/resources/outputPage.css'>
+	<script 
+		 src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src = '/resources/main.js'></script>
+
+</head>
+<body>
+	<h1>Question Forum</h1>
+	<a id ='link' href = '/'> Enter Another Question </a>
+
+	<div id = 'list'>
+		{% for l in list %}
+			<a href = "/single?id={{l.key.id()}}"> {{l['questionText']}}</a>
+
+		   <br><br>
+
+		{% endfor %}
+	</div>
+	
+	<img id = 'dino' src = '/resources/dino.png'>
+	<img id = 'mark1' src = '/resources/mark.png'>
+	<img id = 'mark2' src = '/resources/mark.png'>
+
+
+</body>
+</html>

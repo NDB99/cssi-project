@@ -1,0 +1,38 @@
+<html id = 'html'>
+	<head>
+	<title> Any Questions?? - Question</title>
+
+		<link rel = 'stylesheet' 
+		href = '/resources/singlePage.css'>
+
+		<script 
+		  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    	</script>
+    	<script src = '/resources/main.js'></script>
+
+	</head>
+	<body>
+		<div id = 'question'>
+			{{question.questionText}} <br><br>
+		</div>
+			
+		<form id = 'delete' method="POST" action="/delete">
+			<input type="hidden" name = "id" value="{{id}}">
+			<input type="submit" value="Delete Question">
+		</form>
+
+
+		<form id = 'answers' method = 'POST' action = '/answer'>
+			<input type = 'text' name = 'answer' > 
+
+			<input type = 'Submit' value = 'Submit'> 
+			<input type = 'hidden' value = '{{question.key.id()}}' name = 'id'>
+		</form>
+		
+		<img id = 'dino' src = '/resources/dino.png'>
+		<img id = 'mark1' src = '/resources/mark.png'>
+		<img id = 'mark2' src = '/resources/mark.png'>
+
+
+	</body>
+</html>

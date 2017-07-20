@@ -1,0 +1,61 @@
+html
+{
+	background-image: url('calm.jpg');
+}
+@font-face
+{
+	font-family: Courgette;
+	src: url(Courgette.ttf);
+
+	font-family: Chawp;
+	src: url(chawp.regular.ttf);
+}
+#link
+{
+	color: black;
+	position: absolute;
+	bottom: 10px;
+}
+h1
+{
+	text-align: center;
+	color: ff3067;
+	font-family: Chawp;
+	font-size: 50px;
+
+
+}
+#dino
+{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+	width:50px;
+}
+#list
+{
+	position: fixed;
+	left: 45%;
+	text-align: center;
+	top:-350px;
+	font-family: Chawp;
+}
+#mark1
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	top: 10px;
+	transform: rotate(20deg);
+	z-index: -1;
+}
+#mark2
+{
+	width: 350px;
+	filter: opacity(60%);
+	position: fixed;
+	bottom: 10px;
+	right:25px;
+	transform: rotate(20deg);
+	z-index: -1;
+}

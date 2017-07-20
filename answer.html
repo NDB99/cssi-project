@@ -1,0 +1,32 @@
+<html id = 'html'>
+<head>
+		<title> Any Questions?? - Answers</title>
+		<link rel = 'stylesheet' 
+		href = '/resources/answer.css'>
+
+		<script 
+		  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    	</script>
+    	<script src = '/resources/main.js'></script>
+
+</head>
+<body>
+	<h1> Answers </h1>
+
+	<a id = 'All' href = '/list'> See All Questions </a> <br>
+	<a id = 'Another' href = '/'> Enter Another Question </a> <br>
+	<div id = 'list'>
+		{% for A in Alist %}
+
+			{{A['answerText']}}
+			   <br><br>
+
+		{% endfor %}
+	</div>
+
+	<img id = 'dino' src = '/resources/dino.png'>
+	<img id = 'mark1' src = '/resources/mark.png'>
+	<img id = 'mark2' src = '/resources/mark.png'>
+
+</body>
+</html>
